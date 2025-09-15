@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Звіти з лабораторних робіт</title>
+  <style>
+    .photo {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 120px;
+  height: 150px;
+  border: 2px dashed white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.6s;
+  overflow: hidden; /* щоб фото не вилазило */
+  cursor: pointer;
+}
+
+header:hover .photo {
+  opacity: 1;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* щоб фото не спотворювалося */
+  }
+
+    /* Загальні стилі */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe6f0, #f3e6ff);
+      color: #222;
+    }
+    h1, h2 {
+      margin: 10px 0;
+    }
+    a { color: #c94f7c; text-decoration: none; }
+
+    /* Шапка */
+    header {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(to right, #ffb6c1, #dda0dd);
+      color: #fff;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      min-height: 130px;
+    }
+    .student-info {
+      margin-top: 10px;
+    }
+    .photo {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      width: 120px;
+      height: 140px;
+      border: 2px dashed white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      color: #fff;
+    }
+
+    /* Горизонтальне меню */
+    nav.top-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #fff0f8;
+      padding: 10px;
+      border-bottom: 2px solid #f5cce8;
+    }
+    nav.top-menu button {
+      margin: 5px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #fff;
+      color: #333;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    nav.top-menu button:hover {
+      background: #f7c4dc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Основна частина */
+    main {
+      display: flex;
+      padding: 20px;
+    }
+
+    /* Бокове меню */
+    aside {
+      flex: 1;
+      max-width: 260px;
+    }
+    aside button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+      font-weight: 500;
+    }
+    aside button:hover {
+      background: #f7c4dc;
+      transform: translateX(6px);
+    }
+
+ .submenu {
+      margin-left: 15px;
+      display: none;
+    }
+    .submenu button {
+      background: #fafafa;
+      font-size: 14px;
+      box-shadow: none;
+    }
+    .submenu button:hover {
+      background: #ffe0f0;
+    }
+
+    /* Контент */
+    section.content {
+      flex: 3;
+      margin-left: 20px;
+      padding: 30px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      min-height: 420px;
+      font-size: 18px;
+      text-align: left;
+      line-height: 1.6em;
+    }
+
+    .content h3 {
+      color: #c94f7c;
+      margin-bottom: 15px;
+    }
+
+    /* Футер */
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      background: linear-gradient(to right, #dda0dd, #ffb6c1);
+      color: white;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <h2>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ<br>
+      з дисципліни «Інтернет-технології та проєктування WEB-застосувань»</h2>
+    <div class="student-info">
+      Виконавець: Студентка групи ІС-42 Лісова Аліна Миколаївна
+    </div>
+    
+   <div class="photo">
+  <img src="zvit/ya.jpg" alt="Фото студента">
+</div>
+
+
+
+  </header>
+
+  <!-- Меню лабораторних робіт -->
+  <nav class="top-menu">
+    <button onclick="showContent('Лабораторна робота №1')">Практична №1</button>
+    <button onclick="showContent('Лабораторна робота №2')">Практична №2</button>
+    <button onclick="showContent('Лабораторна робота №3')">Практична №3</button>
+    <button onclick="showContent('Лабораторна робота №4')">Практична №4</button>
+    <button onclick="showContent('Лабораторна робота №5')">Практична №5</button>
+    <button onclick="showContent('Лабораторна робота №6')">Практична №6</button>
+    <button onclick="showContent('Лабораторна робота №7')">Практична №7</button>
+    <button onclick="showContent('Лабораторна робота №8')">Практична №8</button>
+    <button onclick="showContent('Лабораторна робота №9')">Практична №9</button>
+  </nav>
+
+  <!-- Основний макет -->
+  <main>
+    <!-- Ліве меню -->
+    <aside>
+      <button onclick="showContent('tema')">Тема, Мета, Місце</button>
+      <button onclick="showContent('subject')">Опис предметного середовища</button>
+      <button onclick="toggleSubmenu()">Структура документа</button>
+      <div class="submenu" id="submenu">
+        <button onclick="showContent('table')">HTML-код таблиці</button>
+        <button onclick="showContent('image')">HTML-код зображення</button>
+        <button onclick="showContent('form')">HTML-код форми</button>
+      </div>
+      <button onclick="showContent('mainpage')">Головна сторінка</button>
+      <button onclick="showContent('code')">Код головної сторінки</button>
+      <button onclick="showContent('conclusion')">Висновки</button>
+    </aside>
+
+    <!-- Контент -->
+    <section class="content" id="content">
+      <h3>Місце виведення інформації</h3>
+      Оберіть пункт меню зліва або зверху, щоб переглянути вміст.
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    © 2025 Звіт з лабораторних робіт. Всі права захищені.
+  </footer>
+
+<script>
+    function showContent(section) {
+      let text = "";
+      switch(section) {
+        case "tema":
+          text = `
+            <h3>Тема, Мета, Місце розташування сайту, звіту</h3>
+            <p><b>Тема:</b>Теги та атрибути html-документа. Структурна розмітка.
+Git.github. Робота з репозиторіями. Опис логіки власного web-Застосунку.
+ </p>
+            <p><b>Мета:</b>придбати практичні навички роботи з GitHub, репозиторіями, HTML-
+документом, таблицями, , зображеннями, посиланнями, списками, формами
+Створити шаблон звітного HTML-документом для відображення результатів
+роботи всіх лабораторних робіт. </p>
+            <p><b>Місце розташування WEB-застосунка:</b> .</p>
+            <p><b>Місце розташування звіту:</b> .</p>
+          `;
+          break;
+
+       case "subject":
+  text = `
+    <h3>Опис предметного середовища. Опис бізнес-логіки</h3>
+
+    <h4>Предметна галузь</h4>
+    <p>Онлайн-магазин книжок дозволяє користувачам переглядати каталог, вибирати книги за жанрами та авторами, формувати замовлення й отримувати підтвердження.</p>
+
+    <h4>Функціонал</h4>
+    <ul>
+      <li>Перегляд каталогу книжок (назва, автор, ціна).</li>
+      <li>Фільтрація книжок за жанрами.</li>
+      <li>Форма замовлення книги онлайн.</li>
+    </ul>
+
+    <h4>Бізнес-логіка (сценарій)</h4>
+    <ol>
+      <li>Користувач відкриває сайт і переглядає каталог книжок.</li>
+      <li>Користувач обирає книгу і заповнює форму замовлення.</li>
+      <li>Система приймає дані і надсилає підтвердження.</li>
+      <li>Адміністратор отримує інформацію і виконує доставку.</li>
+    </ol>
+
+    <h4>Функціональні вимоги</h4>
+    <ul>
+      <li>Перегляд каталогу книжок з інформацією (назва, автор, жанр, ціна, обкладинка).</li>
+      <li>Відображення книжок за жанрами у таблиці.</li>
+      <li>Форма замовлення з перевіркою обов’язкових полів.</li>
+      <li>Повідомлення про успішне замовлення (alert).</li>
+      <li>Навігація між головною сторінкою та описом бізнес-логіки.</li>
+    </ul>
+
+    <h4>Нефункціональні вимоги</h4>
+    <ul>
+      <li>Сайт має бути адаптивним (працювати на мобільних і ПК).</li>
+      <li>Простий і зрозумілий інтерфейс.</li>
+      <li>Швидке завантаження сторінок.</li>
+    </ul>
+  `;
+  break;
+
+
+        case "structure":
+          text = `
+            <h3>Структура документа</h3>
+            <ul>
+              <li><b>Головна сторінка (index.html):</b> каталог книжок, навігація, форма замовлення.</li>
+              <li><b>Сторінка бізнес-логіки (biznes.html):</b> опис предметної галузі, функціонал, сценарій роботи та вимоги.</li>
+              <li><b>Файл стилів (style.css):</b> зовнішнє оформлення сайту.</li>
+              <li><b>Папка зображень (covers/):</b> обкладинки книжок та фонові картинки.</li>
+              <li><b>JS-скрипти:</b> реалізація бізнес-логіки (alert при замовленні).</li>
+            </ul>
+          `;
+          break;
+
+        case "mainpage":
+          text = `
+            <h3>Головна сторінка WEB-застосунку</h3>
+            <p>Основна сторінка сайту містить каталог книжок з назвами, авторами, жанрами, цінами та обкладинками. Користувач може відфільтрувати книги за жанрами та оформити замовлення через форму.</p>
+          `;
+          break;
+
+        case "code":
+          text = `
+            <h3>Код головної сторінки WEB-застосунку</h3>
+            <pre>
+.
+            </pre>
+          `;
+          break;
+
+        case "conclusion":
+          text = `
+            <h3>Висновки</h3>
+            <p>У процесі виконання практичної роботи ми розробили головну сторінку WEB-застосунка онлайн-магазину книжок. Ми закріпили знання з HTML та CSS, створили структуру сторінки з каталогом книг, реалізували форму замовлення та базову бізнес-логіку.</p>
+            <p>Також ми оформили бізнес-логіку проєкту у вигляді окремої сторінки з описом предметного середовища, функціональних і нефункціональних вимог.</p>
+            <p>У результаті ми отримали готовий прототип інтернет-магазину, який може бути розширений у майбутньому для роботи з базою даних та серверною частиною.</p>
+          `;
+          break;
+
+        default:
+          text = "<h3>Розділ у розробці</h3>";
+      }
+      document.getElementById('content').innerHTML = text;
+    }
+</script>
+
+  <!-- JS для зміни контенту -->
+  <script>
+
+  const photoDiv = document.querySelector('.photo');
+  const fileInput = document.getElementById('uploadPhoto');
+
+  // Клік по блоку відкриває вибір файлу
+  photoDiv.addEventListener('click', () => {
+    fileInput.click();
+  });
+
+  // Завантаження фото
+  fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // Якщо ще нема img – додаємо
+        let img = photoDiv.querySelector('img');
+        if (!img) {
+          img = document.createElement('img');
+          photoDiv.appendChild(img);
+        }
+        img.src = e.target.result;
+        img.style.display = 'block';
+        // Прибираємо текст
+        const text = photoDiv.querySelector('span');
+        if (text) text.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  
+    
+     function toggleSubmenu() {
+      const submenu = document.getElementById('submenu');
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    }
+
+    
+  </script>
+</body>
+</html>
