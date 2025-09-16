@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Звіти з лабораторних робіт</title>
+   <link rel="icon" type="image/x-icon" href="zvit/icon.ico">
   <style>
     .photo {
   position: absolute;
@@ -216,19 +217,20 @@ header:hover .photo {
       <button onclick="showContent('subject')">Опис предметного середовища</button>
       <button onclick="toggleSubmenu()">Структура документа</button>
       <div class="submenu" id="submenu">
+        <button onclick="showContent('catalog')">HTML-код каталогу книжок</button>
         <button onclick="showContent('table')">HTML-код таблиці</button>
-        <button onclick="showContent('image')">HTML-код зображення</button>
+        <button onclick="showContent('lists')">HTML-код списків</button>
         <button onclick="showContent('form')">HTML-код форми</button>
+        <button onclick="showContent('comments')">HTML-код відгуків</button>
+        <button onclick="showContent('script')">Код скриптів</button>
       </div>
-      <button onclick="showContent('mainpage')">Головна сторінка</button>
-      <button onclick="showContent('code')">Код головної сторінки</button>
-      <button onclick="showContent('conclusion')">Висновки</button>
+            <button onclick="showContent('conclusion')">Висновки</button>
     </aside>
 
     <!-- Контент -->
     <section class="content" id="content">
       <h3>Місце виведення інформації</h3>
-      Оберіть пункт меню зліва або зверху, щоб переглянути вміст.
+      Оберіть пункт меню зліва, щоб переглянути вміст.
     </section>
   </main>
 
@@ -251,8 +253,48 @@ Git.github. Робота з репозиторіями. Опис логіки в
 документом, таблицями, , зображеннями, посиланнями, списками, формами
 Створити шаблон звітного HTML-документом для відображення результатів
 роботи всіх лабораторних робіт. </p>
-            <p><b>Місце розташування WEB-застосунка:</b> .</p>
-            <p><b>Місце розташування звіту:</b> .</p>
+           <p>
+  <b>Місце розташування WEB-застосунка:</b> 
+  <a href="https://github.com/alinlisov/IC-42_appWEB-LisovaAlina-FIOT-2025.git" target="_blank">
+    https://github.com/alinlisov/IC-42_appWEB-LisovaAlina-FIOT-2025.git
+  </a>
+</p>
+
+<p>
+  <b>Посилання на живу сторінку WEB-застосунка:</b> 
+  <a href="https://alinlisov.github.io/IC-42_appWEB-LisovaAlina-FIOT-2025/" target="_blank">
+    https://alinlisov.github.io/IC-42_appWEB-LisovaAlina-FIOT-2025/
+  </a>
+</p>
+
+<p>
+  <b>Місце розташування звіту:</b> 
+  <a href="https://github.com/alinlisov/IC-42_-appRECORD--Lisova_Alina-FIOT-2025.git" target="_blank">
+    https://github.com/alinlisov/IC-42_-appRECORD--Lisova_Alina-FIOT-2025.git
+  </a>
+</p>
+
+<p>
+  <b>Посилання на живу сторінку звіту:</b> 
+  <a href="https://alinlisov.github.io/IC-42_-appRECORD--Lisova_Alina-FIOT-2025/" target="_blank">
+    https://alinlisov.github.io/IC-42_-appRECORD--Lisova_Alina-FIOT-2025/
+  </a>
+</p>
+
+<p>
+  <b>Місце розташування самостійної роботи 1:</b> 
+  <a href="https://github.com/alinlisov/IC-42_INDEPENDENT-LisovaAlina-FIOT-2025.git" target="_blank">
+    https://github.com/alinlisov/IC-42_INDEPENDENT-LisovaAlina-FIOT-2025.git
+  </a>
+</p>
+
+<p>
+  <b>Посилання на живу сторінку самостійної роботи 1:</b> 
+  <a href="https://alinlisov.github.io/IC-42_INDEPENDENT-LisovaAlina-FIOT-2025/" target="_blank">
+    https://alinlisov.github.io/IC-42_INDEPENDENT-LisovaAlina-FIOT-2025/
+  </a>
+</p>
+
           `;
           break;
 
@@ -296,35 +338,59 @@ Git.github. Робота з репозиторіями. Опис логіки в
   `;
   break;
 
+case "script":
+  text = `
+    <h3>Скрипт (для кнопки «Замовити»)</h3>
+    <pre>
+&lt;script&gt;
+    document.querySelectorAll('.order-btn').forEach(btn =&gt; {
+      btn.addEventListener('click', () =&gt; {
+        const bookName = btn.getAttribute('data-book');
+        const bookSelect = document.getElementById('book');
 
-        case "structure":
-          text = `
-            <h3>Структура документа</h3>
-            <ul>
-              <li><b>Головна сторінка (index.html):</b> каталог книжок, навігація, форма замовлення.</li>
-              <li><b>Сторінка бізнес-логіки (biznes.html):</b> опис предметної галузі, функціонал, сценарій роботи та вимоги.</li>
-              <li><b>Файл стилів (style.css):</b> зовнішнє оформлення сайту.</li>
-              <li><b>Папка зображень (covers/):</b> обкладинки книжок та фонові картинки.</li>
-              <li><b>JS-скрипти:</b> реалізація бізнес-логіки (alert при замовленні).</li>
-            </ul>
-          `;
-          break;
+        for (let option of bookSelect.options) {
+          if (option.text.includes(bookName)) {
+            bookSelect.value = option.value;
+            break;
+          }
+        }
+        document.querySelector('form').scrollIntoView({behavior: 'smooth'});
+      });
+    });
+&lt;/script&gt;
+</pre>
+<h3>Скрипт (для відгуків)</h3>
+<pre>
+&lt;script&gt;
+  const form = document.getElementById("comment-form");
+  const commentList = document.getElementById("comment-list");
 
-        case "mainpage":
-          text = `
-            <h3>Головна сторінка WEB-застосунку</h3>
-            <p>Основна сторінка сайту містить каталог книжок з назвами, авторами, жанрами, цінами та обкладинками. Користувач може відфільтрувати книги за жанрами та оформити замовлення через форму.</p>
-          `;
-          break;
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-        case "code":
-          text = `
-            <h3>Код головної сторінки WEB-застосунку</h3>
-            <pre>
-.
-            </pre>
-          `;
-          break;
+    const name = document.getElementById("comment-name").value.trim();
+    const text = document.getElementById("comment-text").value.trim();
+    const date = new Date().toLocaleDateString("uk-UA");
+
+    if (name &amp;&amp; text) {
+      const newComment = document.createElement("article");
+      newComment.classList.add("comment");
+
+      newComment.innerHTML = \`
+        &lt;h3&gt;\${name}&lt;/h3&gt;
+        &lt;p&gt;\${text}&lt;/p&gt;
+        &lt;small&gt;\${date}&lt;/small&gt;
+      \`;
+
+      commentList.prepend(newComment);
+      form.reset(); // очищає форму
+    }
+  });
+&lt;/script&gt;
+</pre>
+  `;
+  break;
+
 
         case "conclusion":
           text = `
@@ -334,6 +400,238 @@ Git.github. Робота з репозиторіями. Опис логіки в
             <p>У результаті ми отримали готовий прототип інтернет-магазину, який може бути розширений у майбутньому для роботи з базою даних та серверною частиною.</p>
           `;
           break;
+
+        case "table":
+          text = `
+            <h3>HTML-код таблиці та screenshot</h3>
+            <pre><code>
+&lt;h2&gt;Жанри книжок&lt;/h2&gt;
+&lt;table class="genres"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Жанр&lt;/th&gt;
+      &lt;th&gt;Опис&lt;/th&gt;
+      &lt;th&gt;Книги&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Класика&lt;/td&gt;
+      &lt;td&gt;Твори, що мають високу літературну цінність і витримали перевірку часом.&lt;/td&gt; 
+      &lt;td&gt;«Тарас Бульба» - Микола Гоголь&lt;br&gt;"Великий Гетсбі" - Френсіс Скотт Фіцджеральд&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Фантастика&lt;/td&gt;
+      &lt;td&gt;Книги з елементами вигаданих світів, майбутнього або наукових відкриттів.&lt;/td&gt;
+      &lt;td&gt;«Квіти для Елджернона» - Деніел Кіз&lt;br&gt;"Гаррі Поттер" - Джоан Роулінг&lt;br&gt;"Мандри Гуллівера" - Джонатан Свіфт&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Детектив&lt;/td&gt;
+      &lt;td&gt;Сюжет будується навколо розслідувань та загадкових подій.&lt;/td&gt;
+      &lt;td&gt;«Смерть на Нілі» - Агата Крісті&lt;br&gt;"Код да Вінчі" - Ден Браун&lt;br&gt;"Вбивство у «Східному експресі" - Агата Крісті&lt;br&gt;
+      &lt"Пригоди Шерлока Холмса" - Артур Конан-Дойл&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Філософія&lt;/td&gt;
+      &lt;td&gt;Книги з глибокими роздумами про життя, суспільство та світ.&lt;/td&gt;
+      &lt;td&gt;«Мистецтво війни» - Сунь-цзи&lt;br&gt;"Держава" - Платон&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Роман&lt;/td&gt;
+      &lt;td&gt;Художні твори, що розповідають про людські долі та почуття.&lt;/td&gt;
+      &lt;td&gt;«Три товариші» - Еріх Марія Ремарк&lt;br&gt;"Джейн Ейр" - Шарлотта Бронте&lt;br&gt;"Портрет Доріана Грея" - Оскар Уайльд&lt;br&gt;
+      &lt"Інтернат" - Сергій Жадан&lt;br&gt;"Гордість і упередження" - Джейн Остін&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+
+<!-- фото таблиці -->
+    <img src="zvit/table.png" alt="Таблиця жанрів книжок" style="max-width:80%;border:1px solid #ccc;margin-top:10px;">
+          `;
+          break;
+
+       case "catalog":
+  text = `
+    <h3>HTML-код каталогу книжок та screenshot</h3>
+       <pre><code>
+&lt;h2&gt;Каталог книжок&lt;/h2&gt;
+&lt;section class="book-grid"&gt;
+
+  &lt;section class="book-card"&gt;
+    &lt;img src="covers/nile.jpg" alt="Смерть на Нілі"&gt;
+    &lt;section class="book-info"&gt;
+      &lt;h3&gt;Смерть на Нілі&lt;/h3&gt;
+      &lt;p&gt;Агата Крісті&lt;/p&gt;
+      &lt;p&gt;Детектив&lt;/p&gt;
+      &lt;p class="book-price"&gt;300 грн&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;button class="order-btn" data-book="Смерть на Нілі"&gt;Замовити&lt;/button&gt;
+  &lt;/section&gt;
+
+  &lt;section class="book-card"&gt;
+    &lt;img src="covers/ejr.jpg" alt="Джейн Ейр"&gt;
+    &lt;section class="book-info"&gt;
+      &lt;h3&gt;Джейн Ейр&lt;/h3&gt;
+      &lt;p&gt;Шарлотта Бронте&lt;/p&gt;
+      &lt;p&gt;Роман&lt;/p&gt;
+      &lt;p class="book-price"&gt;500 грн&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;button class="order-btn" data-book="Джейн Ейр"&gt;Замовити&lt;/button&gt;
+  &lt;/section&gt;
+
+  ... (інші картки за аналогією)
+
+&lt;/section&gt;
+    </code></pre>
+
+    <img src="zvit/catalog.png" alt="Таблиця жанрів книжок" style="max-width:80%;border:1px solid #ccc;margin-top:10px;">
+  `;
+  break;
+
+  case "lists":
+  text = `
+    <h3>HTML-код списків та screenshot</h3>
+       <pre><code>
+&lt;h2&gt;Топ-3 авторів&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Агата Крісті&lt;/li&gt;
+  &lt;li&gt;Ден Браун&lt;/li&gt;
+  &lt;li&gt;Артур Конан-Дойл&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Фаворити читачів&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Гаррі Поттер і філософський камінь — дуже популярна&lt;/li&gt;
+  &lt;li&gt;Код да Вінчі — часто замовляють&lt;/li&gt;
+  &lt;li&gt;Три товариші — популярна серед студентів&lt;/li&gt;
+  &lt;li&gt;Смерть на Нілі — стабільні замовлення&lt;/li&gt;
+  &lt;li&gt;Квіти для Елджернона — для цінителів&lt;/li&gt;
+&lt;/ol&gt;
+    </code></pre>
+   <img src="zvit/lists.png" alt="Списки" style="max-width:50%;border:1px solid #ccc;margin-top:10px;">
+  `;
+  break;
+
+
+       case "form":
+  text = `
+    <h3>HTML-код форми та screenshot</h3>
+    <pre><code>
+&lt;h2&gt;Форма замовлення&lt;/h2&gt;
+&lt;form action="#" method="post" onsubmit="alert('Замовлення відправлено!'); return false;"&gt;
+  &lt;label for="book"&gt;Оберіть книгу:&lt;/label&gt;
+  &lt;select id="book" name="book"&gt;
+    &lt;option&gt;Смерть на Нілі&lt;/option&gt;
+    &lt;option&gt;Джейн Ейр&lt;/option&gt;
+    &lt;option&gt;Портрет Доріана Грея&lt;/option&gt;
+    &lt;option&gt;Код да Вінчі&lt;/option&gt;
+    &lt;option&gt;Інтернат&lt;/option&gt;
+    &lt;option&gt;Гаррі Поттер і філософський камінь&lt;/option&gt;
+    &lt;option&gt;Гордість і упередження&lt;/option&gt;
+    &lt;option&gt;Мандри Гуллівера&lt;/option&gt;
+    &lt;option&gt;Вбивство у «Східному експресі&lt;/option&gt;
+    &lt;option&gt;Квіти для Елджернона&lt;/option&gt;
+    &lt;option&gt;Три товариші&lt;/option&gt;
+    &lt;option&gt;Держава&lt;/option&gt;
+    &lt;option&gt;Великий Гетсбі&lt;/option&gt;
+    &lt;option&gt;Пригоди Шерлока Холмса. Том 1&lt;/option&gt;
+    &lt;option&gt;Мистецтво війни&lt;/option&gt;
+    &lt;option&gt;Тарас Бульба&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;label for="qty"&gt;Кількість:&lt;/label&gt;
+  &lt;input type="number" id="qty" name="qty" min="1" max="10" required&gt;
+
+  &lt;label for="name"&gt;Ваше повне ім'я:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+
+  &lt;label for="phone"&gt;Номер телефону:&lt;/label&gt;
+  &lt;input type="tel" id="phone" name="phone" pattern="^\\+380\\d{9}$" 
+  placeholder="+380XXXXXXXXX" required&gt;
+
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+
+  &lt;label for="region"&gt;Адреса доставки:&lt;/label&gt;
+  &lt;select id="region" name="region" required&gt;
+    &lt;option value=""&gt;-- Оберіть область --&lt;/option&gt;
+    &lt;option&gt;Вінницька&lt;/option&gt;
+    &lt;option&gt;Волинська&lt;/option&gt;
+    &lt;option&gt;Дніпропетровська&lt;/option&gt;
+    &lt;option&gt;Донецька&lt;/option&gt;
+    &lt;option&gt;Житомирська&lt;/option&gt;
+    &lt;option&gt;Закарпатська&lt;/option&gt;
+    &lt;option&gt;Запорізька&lt;/option&gt;
+    &lt;option&gt;Івано-Франківська&lt;/option&gt;
+    &lt;option&gt;Київська&lt;/option&gt;
+    &lt;option&gt;Кіровоградська&lt;/option&gt;
+    &lt;option&gt;Луганська&lt;/option&gt;
+    &lt;option&gt;Львівська&lt;/option&gt;
+    &lt;option&gt;Миколаївська&lt;/option&gt;
+    &lt;option&gt;Одеська&lt;/option&gt;
+    &lt;option&gt;Полтавська&lt;/option&gt;
+    &lt;option&gt;Рівненська&lt;/option&gt;
+    &lt;option&gt;Сумська&lt;/option&gt;
+    &lt;option&gt;Тернопільська&lt;/option&gt;
+    &lt;option&gt;Харківська&lt;/option&gt;
+    &lt;option&gt;Херсонська&lt;/option&gt;
+    &lt;option&gt;Хмельницька&lt;/option&gt;
+    &lt;option&gt;Черкаська&lt;/option&gt;
+    &lt;option&gt;Чернівецька&lt;/option&gt;
+    &lt;option&gt;Чернігівська&lt;/option&gt;
+    &lt;option&gt;м. Київ&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;label for="address"&gt;Місто/село/смт:&lt;/label&gt;
+  &lt;input type="text" id="address" name="address" required&gt;
+
+  &lt;button type="submit"&gt;Замовити&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+    <!-- фото форми -->
+    <img src="zvit/form.png" alt="Форма замовлення" style="max-width:80%;border:1px solid #ccc;margin-top:10px;">
+  `;
+  break;
+
+case "comments":
+  text = `
+    <h3>HTML-код відгуків та screenshot</h3>
+    <pre><code>
+&lt;section class="comments"&gt;
+  &lt;h2&gt;Відгуки&lt;/h2&gt;
+
+  &lt;!-- Форма для додавання нового коментаря --&gt;
+  &lt;form id="comment-form"&gt;
+    &lt;label for="comment-name"&gt;Ваше ім’я:&lt;/label&gt;
+    &lt;input type="text" id="comment-name" name="comment-name" placeholder="Введіть ім’я" required&gt;
+
+    &lt;label for="comment-text"&gt;Ваш відгук:&lt;/label&gt;
+    &lt;textarea id="comment-text" name="comment-text" rows="4" placeholder="Напишіть свій відгук..." required&gt;&lt;/textarea&gt;
+
+    &lt;button type="submit"&gt;Надіслати&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;!-- Список відгуків --&gt;
+  &lt;section id="comment-list" class="comment-list"&gt;
+    &lt;article class="comment"&gt;
+      &lt;h3&gt;Лєна&lt;/h3&gt;
+      &lt;p&gt;чотко 🙂&lt;/p&gt;
+      &lt;small&gt;12.09.2025&lt;/small&gt;
+    &lt;/article&gt;
+    &lt;article class="comment"&gt;
+      &lt;h3&gt;Кукарача&lt;/h3&gt;
+      &lt;p&gt;швидка доставка&lt;/p&gt;
+      &lt;small&gt;11.09.2025&lt;/small&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+&lt;/section&gt;
+    </code></pre>
+   <img src="zvit/comments.png" alt="Відгуки" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
+  `;
+  break;
+
 
         default:
           text = "<h3>Розділ у розробці</h3>";
@@ -352,29 +650,6 @@ Git.github. Робота з репозиторіями. Опис логіки в
   photoDiv.addEventListener('click', () => {
     fileInput.click();
   });
-
-  // Завантаження фото
-  fileInput.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        // Якщо ще нема img – додаємо
-        let img = photoDiv.querySelector('img');
-        if (!img) {
-          img = document.createElement('img');
-          photoDiv.appendChild(img);
-        }
-        img.src = e.target.result;
-        img.style.display = 'block';
-        // Прибираємо текст
-        const text = photoDiv.querySelector('span');
-        if (text) text.style.display = 'none';
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-
   
     
      function toggleSubmenu() {
