@@ -185,7 +185,7 @@ header:hover .photo {
     <h2>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ<br>
       з дисципліни «Інтернет-технології та проєктування WEB-застосувань»</h2>
     <div class="student-info">
-      Виконавець: Студентка групи ІС-42 Лісова Аліна Миколаївна
+    Студентка групи ІС-42 Лісова Аліна Миколаївна
     </div>
     
    <div class="photo">
@@ -250,7 +250,7 @@ header:hover .photo {
 Git.github. Робота з репозиторіями. Опис логіки власного web-Застосунку.
  </p>
             <p><b>Мета:</b>придбати практичні навички роботи з GitHub, репозиторіями, HTML-
-документом, таблицями, , зображеннями, посиланнями, списками, формами
+документом, таблицями, , зображеннями, посиланнями, списками, формами.
 Створити шаблон звітного HTML-документом для відображення результатів
 роботи всіх лабораторних робіт. </p>
            <p>
@@ -339,7 +339,26 @@ Git.github. Робота з репозиторіями. Опис логіки в
   break;
 
 case "script":
-  text = `
+    text = `
+    <section class="theory">
+  <h4>Теорія: JavaScript у веб-сторінках</h4>
+  <p>
+    У JavaScript <code>document.querySelectorAll()</code> та 
+    <code>document.getElementById()</code> використовуються для вибору 
+    елементів із HTML-документа.  
+  </p>
+  <ul>
+    <li><code>addEventListener()</code> — додає обробник події (наприклад, 
+      <em>click</em> або <em>submit</em>).</li>
+    <li><code>getAttribute()</code> — отримує значення атрибуту з елемента.</li>
+    <li><code>scrollIntoView()</code> — прокручує сторінку до вибраного елемента.</li>
+    <li><code>createElement()</code> — створює новий HTML-елемент.</li>
+    <li><code>innerHTML</code> — дозволяє додати внутрішній HTML-код в елемент.</li>
+    <li><code>prepend()</code> — вставляє елемент на початок контейнера.</li>
+    <li><code>form.reset()</code> — очищає всі поля введення у формі.</li>
+    <li><code>new Date().toLocaleDateString("uk-UA")</code> — генерує поточну дату у форматі української локалі.</li>
+  </ul>
+</section>
     <h3>Скрипт (для кнопки «Замовити»)</h3>
     <pre>
 &lt;script&gt;
@@ -403,7 +422,20 @@ case "script":
 
         case "table":
           text = `
-            <h3>HTML-код таблиці та screenshot</h3>
+            <h3>HTML-код таблиці</h3>
+            <section class="theory">
+  <h4>Теорія: Теги та атрибути HTML</h4>
+  <ul>
+    <li><code>&lt;h2&gt;</code> — заголовок другого рівня.</li>
+    <li><code>&lt;table&gt;</code> — створює таблицю для відображення даних.</li>
+    <li><code>&lt;thead&gt;</code> — секція таблиці з заголовками стовпців.</li>
+    <li><code>&lt;tbody&gt;</code> — основна частина таблиці з даними.</li>
+    <li><code>&lt;tr&gt;</code> — рядок таблиці.</li>
+    <li><code>&lt;th&gt;</code> — комірка заголовка (текст виділяється жирним і центрується).</li>
+    <li><code>&lt;td&gt;</code> — звичайна комірка таблиці.</li>
+    <li>Атрибут <code>class</code> використовується для стилізації елементів через CSS.</li>
+  </ul>
+</section>
             <pre><code>
 &lt;h2&gt;Жанри книжок&lt;/h2&gt;
 &lt;table class="genres"&gt;
@@ -453,7 +485,20 @@ case "script":
 
        case "catalog":
   text = `
-    <h3>HTML-код каталогу книжок та screenshot</h3>
+    <h3>HTML-код каталогу книжок</h3>
+    <section class="theory">
+  <h4>Теорія про теги та атрибути</h4>
+  <p>&lt;h2&gt;, &lt;h3&gt; – заголовки різних рівнів.</p>
+  <p>&lt;section&gt; – блочний тег, який групує пов’язані елементи (наприклад, картки книг).</p>
+  <p>&lt;img src="..." alt="..."&gt; – вставляє зображення;
+    <br>src – шлях до файлу картинки;
+    <br>alt – текст-опис, який показується, якщо картинка не завантажилась.</p>
+  <p>&lt;p&gt; – параграф (звичайний текст).</p>
+  <p>class="..." – атрибут для стилізації (CSS) або JS, наприклад class="book-card".</p>
+  <p>data-* – користувацькі атрибути для передачі додаткових даних у JS, наприклад data-book="Назва".</p>
+  <p>&lt;button&gt; – кнопка для дії (замовлення, відкриття меню).</p>
+  </section>
+
        <pre><code>
 &lt;h2&gt;Каталог книжок&lt;/h2&gt;
 &lt;section class="book-grid"&gt;
@@ -487,13 +532,24 @@ case "script":
 
     <img src="zvit/catalog.png" alt="Таблиця жанрів книжок" style="max-width:80%;border:1px solid #ccc;margin-top:10px;">
   `;
+  
   break;
+  
 
   case "lists":
   text = `
-    <h3>HTML-код списків та screenshot</h3>
-       <pre><code>
-&lt;h2&gt;Топ-3 авторів&lt;/h2&gt;
+    <h3>HTML-код списків</h3>
+    <section class="theory">
+    <h4>Теорія: Теги та атрибути HTML</h4>
+    <p>
+      <p>Заголовки (<code>&lt;h2&gt;</code>) ділять текст на розділи.</p>
+  <p><code>&lt;ul&gt;</code> створює список із маркерами.</p>
+  <p><code>&lt;ol&gt;</code> створює список із нумерацією.</p>
+  <p><code>&lt;li&gt;</code> описує кожного автора чи книгу як окремий пункт списку.</p>
+      </p>
+  </section>
+      <pre><code>
+ &lt;h2&gt;Топ-3 авторів&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Агата Крісті&lt;/li&gt;
   &lt;li&gt;Ден Браун&lt;/li&gt;
@@ -516,7 +572,28 @@ case "script":
 
        case "form":
   text = `
-    <h3>HTML-код форми та screenshot</h3>
+    <h3>HTML-код форми</h3>
+   <section class="theory">
+  <h4>Теорія: Теги та атрибути HTML</h4>
+  <p>
+    У HTML <strong>теги</strong> задають структуру сторінки. Наприклад:
+    <code>&lt;form&gt;</code> використовується для створення форми, 
+    <code>&lt;label&gt;</code> — для підписів до полів, 
+    <code>&lt;input&gt;</code> — для введення даних, 
+    <code>&lt;select&gt;</code> та <code>&lt;option&gt;</code> — для випадаючих списків.
+  </p>
+  <p>
+    <strong>Атрибути</strong> дозволяють уточнити поведінку або властивості тегів.  
+    Наприклад:
+    <ul>
+      <li><code>action</code> і <code>method</code> у <code>&lt;form&gt;</code> визначають, куди та як надсилаються дані.</li>
+      <li><code>for</code> у <code>&lt;label&gt;</code> пов’язує підпис із конкретним полем.</li>
+      <li><code>type</code>, <code>name</code>, <code>required</code>, <code>placeholder</code> у <code>&lt;input&gt;</code> керують типом поля, його назвою, обов’язковістю та підказкою.</li>
+      <li><code>pattern</code> дозволяє задати формат даних, наприклад для номера телефону.</li>
+    </ul>
+  </p>
+</section>
+
     <pre><code>
 &lt;h2&gt;Форма замовлення&lt;/h2&gt;
 &lt;form action="#" method="post" onsubmit="alert('Замовлення відправлено!'); return false;"&gt;
@@ -598,6 +675,20 @@ case "script":
 case "comments":
   text = `
     <h3>HTML-код відгуків та screenshot</h3>
+    <section class="theory">
+  <h4>Теорія: Теги та атрибути HTML</h4>
+  <ul>
+    <li><code>&lt;section&gt;</code> – блочний елемент для логічних розділів сторінки.</li>
+    <li><code>&lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;</code> – заголовки різних рівнів для структурування тексту.</li>
+    <li><code>&lt;form&gt;</code> – контейнер для створення форми введення даних.</li>
+    <li><code>&lt;label&gt;</code> – підпис до елементу форми, пов’язаний з полем через атрибут <code>for</code>.</li>
+    <li><code>&lt;input&gt;</code> – поле введення (тут текстове для імені).</li>
+    <li><code>&lt;textarea&gt;</code> – багаторядкове поле введення тексту.</li>
+    <li><code>&lt;button&gt;</code> – кнопка для надсилання форми.</li>
+    <li><code>&lt;article&gt;</code> – незалежний блок вмісту (окремий відгук).</li>
+    <li><code>&lt;small&gt;</code> – допоміжний текст, наприклад, дата.</li>
+  </ul>
+</section>
     <pre><code>
 &lt;section class="comments"&gt;
   &lt;h2&gt;Відгуки&lt;/h2&gt;
