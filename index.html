@@ -239,10 +239,18 @@ header:hover .photo {
     © 2025 Звіт з лабораторних робіт. Всі права захищені.
   </footer>
 
+
 <script>
     function showContent(section) {
       let text = "";
       switch(section) {
+      case "Лабораторна робота №1":
+  text = `
+    <h3>Практична робота №1</h3>
+    <p>Оберіть розділ у лівому меню, щоб переглянути зміст.</p>
+  `;
+  break;
+
         case "tema":
           text = `
             <h3>Тема, Мета, Місце розташування сайту, звіту</h3>
