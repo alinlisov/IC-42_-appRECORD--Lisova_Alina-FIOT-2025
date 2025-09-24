@@ -222,7 +222,8 @@ header:hover .photo {
         <button onclick="showContent('lists')">HTML-код списків</button>
         <button onclick="showContent('form')">HTML-код форми</button>
         <button onclick="showContent('comments')">HTML-код відгуків</button>
-        <button onclick="showContent('script')">Код скриптів</button>
+        <button onclick="showContent('script')">scripts</button>
+        <button onclick="showContent('stiles')">stiles</button>
       </div>
             <button onclick="showContent('conclusion')">Висновки</button>
     </aside>
@@ -230,7 +231,7 @@ header:hover .photo {
     <!-- Контент -->
     <section class="content" id="content">
       <h3>Місце виведення інформації</h3>
-      Оберіть пункт меню зліва, щоб переглянути вміст.
+      Оберіть пункт меню зверху, щоб переглянути вміст.
     </section>
   </main>
 
@@ -247,7 +248,7 @@ header:hover .photo {
       case "Лабораторна робота №1":
   text = `
     <h3>Практична робота №1</h3>
-    <p>Оберіть розділ у лівому меню, щоб переглянути зміст.</p>
+    <p>Оберіть розділ у лівому меню, щоб переглянути вміст.</p>
   `;
   break;
 
@@ -422,10 +423,27 @@ case "script":
         case "conclusion":
           text = `
             <h3>Висновки</h3>
-            <p>У процесі виконання практичної роботи ми розробили головну сторінку WEB-застосунка онлайн-магазину книжок. Ми закріпили знання з HTML та CSS, створили структуру сторінки з каталогом книг, реалізували форму замовлення та базову бізнес-логіку.</p>
-            <p>Також ми оформили бізнес-логіку проєкту у вигляді окремої сторінки з описом предметного середовища, функціональних і нефункціональних вимог.</p>
-            <p>У результаті ми отримали готовий прототип інтернет-магазину, який може бути розширений у майбутньому для роботи з базою даних та серверною частиною.</p>
-          `;
+            <p>
+    Під час виконання роботи ми розробили сучасний макет вебсторінки онлайн-магазину, 
+    орієнтуючись на простоту, зручність і привабливість для користувачів.
+    Створено структуровану шапку сайту з логотипом, навігацією та пошуком, що забезпечує швидкий доступ
+    до основних розділів.
+  </p>
+  <p>
+    Основний каталог книжок реалізовано у вигляді сітки карток із зображенням, назвою та ціною.
+    Кнопки замовлення та перегляду зроблено помітними і зрозумілими, що спрощує процес покупки.
+    Окремо додано форму замовлення та блок відгуків із сучасним візуальним оформленням, що підвищує довіру
+    користувачів та зручність роботи з сайтом.
+  </p>
+  <p>
+    У дизайні використано сучасні можливості HTML та CSS (flexbox, grid, градієнтні фони, ефекти наведення,
+    адаптивну верстку), завдяки чому сторінка виглядає акуратно та коректно працює на різних пристроях.
+  </p>
+  <p>
+    Створений макет демонструє практичні навички верстки, оформлення контенту та побудови інтерфейсу,
+    який відповідає сучасним вимогам і може бути використаний як основа для реального онлайн-магазину.
+  </p>
+  `;
           break;
 
         case "table":
@@ -729,8 +747,59 @@ case "comments":
     </code></pre>
    <img src="zvit/comments.png" alt="Відгуки" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
   `;
-  break;
+    break;
 
+case "stiles":
+  text = `
+    <h3>CSS-код стилю</h3>
+    <section class="theory">
+      <h4>Теорія: Теги та атрибути</h4>
+      <p>
+        Теги:<br>
+        - &lt;style&gt; … &lt;/style&gt; — блок CSS стилів<br>
+        - &lt;body&gt; — тіло сторінки<br>
+        - &lt;header class="site-header"&gt; — шапка сайту<br>
+        - &lt;div class="header-container"&gt; — контейнер<br>
+        - &lt;div class="logo"&gt;, &lt;img&gt;, &lt;h1&gt; — логотип і назва<br>
+        - &lt;nav class="main-nav"&gt;, &lt;a&gt; — меню навігації<br>
+        - &lt;div class="header-actions"&gt;, &lt;input class="search-input"&gt;, 
+          &lt;button class="search-btn"&gt;, &lt;button class="cart-btn"&gt;<br>
+        - &lt;main&gt; — головний вміст<br>
+        - &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt; — заголовки<br>
+        - &lt;div class="book-grid"&gt;, &lt;div class="book-card"&gt;, &lt;img&gt;, &lt;div class="book-info"&gt;, &lt;p&gt;, &lt;span class="book-price"&gt;, &lt;button class="order-btn"&gt;<br>
+        - &lt;section class="section-bg"&gt; — секція з фоном<br>
+        - &lt;div class="form-container"&gt;, &lt;form&gt;, &lt;label&gt;, &lt;input&gt;, &lt;select&gt;, &lt;textarea&gt;, &lt;button&gt;<br>
+        - &lt;div class="reviews-container"&gt; — блок відгуків<br>
+        - &lt;button class="feedback-btn"&gt; — кнопка відгуку<br>
+        - &lt;table class="genres"&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt; — таблиця жанрів<br>
+        - &lt;div class="comments"&gt;, &lt;form id="comment-form"&gt;, &lt;input&gt;, &lt;textarea&gt;, &lt;button&gt;, &lt;div class="comment-list"&gt;, &lt;div class="comment"&gt;, &lt;small&gt;<br>
+        - &lt;footer&gt; — підвал сайту
+      </p>
+
+      <p>
+        Атрибути:<br>
+        - class="" — прив’язка стилів<br>
+        - id="" — унікальний ідентифікатор (#comment-form)<br>
+        - src="" — шлях до картинки (img)<br>
+        - alt="" — текстове описання картинки<br>
+        - href="" — посилання (a)<br>
+        - type="" — тип поля (text, textarea, button тощо)<br>
+        - placeholder="" — підказка у полі вводу<br>
+        - value="" — значення input<br>
+        - for="" — зв’язок label з input<br>
+        - action="" — куди відправляється форма<br>
+        - method="" — метод форми (get/post)
+      </p>
+
+      <img src="zvit/stile.png" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
+      <img src="zvit/stile2.png" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
+      <img src="zvit/stile3.png" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
+      <img src="zvit/stile4.png" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
+      <img src="zvit/stile5.png" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
+      <img src="zvit/stile6.png" style="max-width:90%;border:1px solid #ccc;margin-top:10px;">
+    </section>
+  `;
+  break;
 
         default:
           text = "<h3>Розділ у розробці</h3>";
